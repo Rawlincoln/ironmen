@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0d78c"/>
+      <stop offset="100%" stop-color="#d4a853"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="80" fill="none" stroke="#d4a853" stroke-width="4" opacity="0.35"/>
+  <g transform="translate(256 268)" fill="url(#gold)">
+    <path d="M-8-120 L8-120 L4 40 L28 72 L12 80 L0 56 L-12 80 L-28 72 L-4 40 Z"/>
+    <path d="M-72 72 L72 72 L64 96 L-64 96 Z"/>
+    <ellipse cx="0" cy="-132" rx="16" ry="20"/>
+  </g>
+  <text x="256" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-weight="700" fill="#d4a853" letter-spacing="6">IRONMEN</text>
+</svg>

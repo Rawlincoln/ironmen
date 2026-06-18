@@ -1,0 +1,13 @@
+# Render Blueprint — connect this repo at https://dashboard.render.com/blueprints
+services:
+  - type: web
+    name: ironmen
+    runtime: python
+    plan: free
+    buildCommand: echo "No build step — Python stdlib only"
+    startCommand: python api/server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"
+# Upgrade to a paid plan + persistent disk at api/data for data that survives redeploys.
