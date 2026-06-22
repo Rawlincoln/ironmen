@@ -365,7 +365,7 @@ function renderDocuments() {
     { file: "documents/03_Resident_Intake_Form.docx", title: "Resident Intake Form", desc: "Full application form with medical, legal, and reference sections" },
     { file: "documents/04_Mentor_Guide.docx", title: "Mentor Guide", desc: "Mentor responsibilities, weekly rhythm, documentation, and boundaries" },
     { file: "documents/05_Operating_Budget.xlsx", title: "Operating Budget (Excel)", desc: "Monthly costs, startup costs, and annual projections in KES" },
-    { file: "documents/06_Friday_Brotherhood_Service_Guide.docx", title: "Friday Brotherhood Service Guide", desc: "Weekly service order, Zoom setup, in-person transition, and teaching rotation" },
+    { file: "documents/06_Friday_Brotherhood_Service_Guide.docx", title: "The Forge Guide", desc: "Weekly gathering order, Zoom setup, in-person transition, and teaching rotation" },
   ];
 
   return `
