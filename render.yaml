@@ -1,13 +1,19 @@
-# Render Blueprint — connect this repo at https://dashboard.render.com/blueprints
+# Render Blueprint — production settings for stability under load
 services:
   - type: web
     name: ironmen
     runtime: python
     plan: free
-    buildCommand: echo "No build step — Python stdlib only"
+    buildCommand: pip install -r requirements.txt
     startCommand: python api/server.py
     healthCheckPath: /api/health
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.0"
-# Upgrade to a paid plan + persistent disk at api/data for data that survives redeploys.
+      - key: WAITRESS_THREADS
+        value: "64"
+      - key: RATE_SUBMIT
+        value: "20"
+      - key: RATE_AUTH
+        value: "10"
+# For heavy traffic (1000+ concurrent): upgrade to Starter plan + 1GB disk on api/data

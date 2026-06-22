@@ -137,7 +137,7 @@ function registerServiceWorker() {
     });
   });
 
-  navigator.serviceWorker.register("/sw.js?v=4").then((reg) => {
+  navigator.serviceWorker.register("/sw.js?v=5").then((reg) => {
     reg.update();
     reg.addEventListener("updatefound", () => {
       const worker = reg.installing;

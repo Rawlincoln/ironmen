@@ -1,1 +1,1 @@
-web: python api/server.py
+web: pip install -r requirements.txt && python api/server.py

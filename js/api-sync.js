@@ -15,35 +15,74 @@ function saveApplicationsLocal(data) {
   localStorage.setItem("ironmen_applications", JSON.stringify(data));
 }
 
+function applySyncData(data, includeApplications = false) {
+  if (data.house && Object.keys(data.house).length) {
+    house = { ...getDefaultHouse(), ...data.house, fridayService: { ...getDefaultFridayService(), ...(data.house.fridayService || {}) } };
+    localStorage.setItem("ironmen_house", JSON.stringify(house));
+  }
+  if (data.community && Object.keys(data.community).length) {
+    community = loadCommunityFromData(data.community);
+    saveCommunity(community, { skipApi: true });
+  }
+  if (data.siteConfig && Object.keys(data.siteConfig).length) {
+    siteConfig = { ...getDefaultSiteConfig(), ...data.siteConfig };
+    localStorage.setItem("ironmen_site_config", JSON.stringify(siteConfig));
+  }
+  if (includeApplications && data.applications) {
+    saveApplicationsLocal({
+      applications: data.applications.applications || [],
+      mpesaConfirmations: data.applications.mpesaConfirmations || [],
+      placementMatches: data.applications.placementMatches || applicationsData.placementMatches || [],
+    });
+  }
+}
+
+async function fetchWithRetry(url, options = {}, retries = 2) {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const res = await fetch(url, options);
+      if (res.status === 429) {
+        const data = await res.json().catch(() => ({}));
+        console.warn("Rate limited:", data.error || "slow down");
+        return res;
+      }
+      return res;
+    } catch (err) {
+      if (i === retries) throw err;
+      await new Promise((r) => setTimeout(r, 400 * (i + 1)));
+    }
+  }
+}
+
 async function initApiSync() {
   try {
-    const res = await fetch("/api/health", { method: "GET" });
+    const res = await fetchWithRetry("/api/health", { method: "GET" });
     if (!res.ok) return;
     apiOnline = true;
-    const sync = await fetch("/api/sync");
+    const sync = await fetchWithRetry("/api/sync");
     if (!sync.ok) return;
     const data = await sync.json();
-    if (data.house && Object.keys(data.house).length) {
-      house = { ...getDefaultHouse(), ...data.house, fridayService: { ...getDefaultFridayService(), ...(data.house.fridayService || {}) } };
-      localStorage.setItem("ironmen_house", JSON.stringify(house));
-    }
-    if (data.community && Object.keys(data.community).length) {
-      community = loadCommunityFromData(data.community);
-      saveCommunity(community, { skipApi: true });
-    }
-    if (data.siteConfig && Object.keys(data.siteConfig).length) {
-      siteConfig = { ...getDefaultSiteConfig(), ...data.siteConfig };
-      localStorage.setItem("ironmen_site_config", JSON.stringify(siteConfig));
-    }
-    if (data.applications) {
-      saveApplicationsLocal({
-        applications: data.applications.applications || [],
-        mpesaConfirmations: data.applications.mpesaConfirmations || [],
-        placementMatches: data.applications.placementMatches || applicationsData.placementMatches || [],
-      });
+    applySyncData(data, false);
+    if (staffToken && !staffToken.startsWith("local-")) {
+      await syncStaffData();
     }
   } catch {
     apiOnline = false;
+  }
+}
+
+async function syncStaffData() {
+  if (!apiOnline || !staffToken || staffToken.startsWith("local-")) return false;
+  try {
+    const res = await fetchWithRetry("/api/sync/staff", {
+      headers: { "X-Staff-Token": staffToken },
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    applySyncData(data, true);
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -69,12 +108,13 @@ async function publicSubmit(channel, payload) {
   let apiOk = false;
   if (apiOnline) {
     try {
-      const res = await fetch("/api/public/submit", {
+      const res = await fetchWithRetry("/api/public/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ channel, payload, date: payload.date }),
       });
       apiOk = res.ok;
+      if (res.status === 429) return false;
     } catch {}
   }
   if (channel === "application") {

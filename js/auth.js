@@ -10,6 +10,7 @@ async function verifyStaffPin(pin, role) {
         const data = await res.json();
         staffToken = data.token;
         localStorage.setItem("ironmen_staff_token", staffToken);
+        await syncStaffData();
         return true;
       }
     } catch {}
