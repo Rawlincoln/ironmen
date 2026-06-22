@@ -113,7 +113,7 @@ function renderGetAppSection() {
           <article class="card get-app-card get-app-card-featured">
             <div class="get-app-icon">📱</div>
             <h3>Install as an app</h3>
-            <p>Add IronMen to your home screen. Opens full-screen like a native app — accountability, check-ins, Friday service, and SOS one tap away.</p>
+            <p>Add IronMen to your home screen. Opens full-screen like a native app — accountability, check-ins, The Forge, and SOS one tap away.</p>
             <button class="btn btn-primary btn-sm" onclick="installPwa()">Install IronMen App</button>
           </article>
         </div>

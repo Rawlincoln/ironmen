@@ -1,7 +1,7 @@
 function renderFridayServiceNav() {
   return `
     <div class="nav-section-label">Brotherhood</div>
-    ${navItem("friday", "⛪", "Friday Service")}
+    ${navItem("friday", "🔥", THE_FORGE.name)}
   `;
 }
 
@@ -21,8 +21,8 @@ function renderFridayService() {
       <div class="service-mode-badge zoom">📹 Zoom Meeting</div>
       <h3 style="margin:12px 0;">Join Online</h3>
       ${svc.zoomLink ? `
-        <p style="color:var(--text-muted);margin-bottom:16px;">Click below to join the brotherhood service. Arrive 5 minutes early.</p>
-        <a class="btn btn-primary btn-block" href="${svc.zoomLink}" target="_blank" rel="noopener">Join Zoom Service</a>
+        <p style="color:var(--text-muted);margin-bottom:16px;">Click below to enter The Forge. Arrive five minutes early — on time is late.</p>
+        <a class="btn btn-primary btn-block" href="${svc.zoomLink}" target="_blank" rel="noopener">Join The Forge on Zoom</a>
         ${svc.zoomMeetingId ? `<p style="font-size:0.85rem;color:var(--text-muted);margin-top:12px;">Meeting ID: ${svc.zoomMeetingId}${svc.zoomPasscode ? ` &bull; Passcode: ${svc.zoomPasscode}` : ""}</p>` : ""}
       ` : `
         <p style="color:var(--text-muted);">Zoom link not yet set. Check back before Friday or contact the House Director.</p>
@@ -71,8 +71,13 @@ function renderFridayService() {
 
   return `
     <div class="page-header">
-      <h1>Friday Brotherhood Service</h1>
-      <p>Every Friday evening, 1 hour — worship, teaching, and fellowship for all IronMen brothers.</p>
+      <h1>${THE_FORGE.name}</h1>
+      <p>${THE_FORGE.tagline} Every Friday, one focused hour — open to all IronMen brothers.</p>
+    </div>
+
+    <div class="encouragement-banner forge-banner" style="margin-bottom:24px;">
+      <span class="icon">🔥</span>
+      <p>${THE_FORGE.description}</p>
     </div>
 
     <div class="service-hero card">
@@ -175,7 +180,7 @@ function renderServiceAttendance(session) {
 
 function renderServiceHistory() {
   const sessions = (house.fridayService?.sessions || []).slice().reverse().slice(0, 8);
-  if (!sessions.length) return `<div class="empty-state"><p>No services recorded yet. The first Friday service will appear here.</p></div>`;
+  if (!sessions.length) return `<div class="empty-state"><p>No Forge sessions recorded yet. The first gathering will appear here.</p></div>`;
 
   return sessions.map((s) => {
     const present = (s.attendance || []).filter((a) => a.present).length;
@@ -240,7 +245,7 @@ function rsvpService() {
   });
 
   saveHouse(house);
-  alert("RSVP confirmed! See you Friday, brother.");
+  alert("RSVP confirmed! See you at The Forge, brother.");
   render();
 }
 

@@ -28,14 +28,14 @@ function renderDirectorDashboard() {
       <div class="stat-card stat-alert"><div class="stat-value">${occupancy.occupied}/${occupancy.capacity}</div><div class="stat-title">Beds Filled</div></div>
       <div class="stat-card"><div class="stat-value">${pendingApps}</div><div class="stat-title">New Applications</div></div>
       <div class="stat-card"><div class="stat-value">${pendingInq + pendingWomen}</div><div class="stat-title">Partner Inquiries</div></div>
-      <div class="stat-card"><div class="stat-value">${rsvpCount}</div><div class="stat-title">Friday RSVPs</div></div>
+      <div class="stat-card"><div class="stat-value">${rsvpCount}</div><div class="stat-title">The Forge RSVPs</div></div>
     </div>
     <div class="dashboard-row" style="margin-top:24px;">
       <div class="card">
         <h3 style="margin-bottom:16px;">Quick Actions</h3>
         <button class="btn btn-primary btn-block" style="margin-bottom:8px;" onclick="navigate('applications')">Review Applications (${apps.length})</button>
         <button class="btn btn-secondary btn-block" style="margin-bottom:8px;" onclick="navigate('intake')">Intake Screening</button>
-        <button class="btn btn-secondary btn-block" style="margin-bottom:8px;" onclick="navigate('friday')">Friday Service</button>
+        <button class="btn btn-secondary btn-block" style="margin-bottom:8px;" onclick="navigate('friday')">${THE_FORGE.name}</button>
         <button class="btn btn-secondary btn-block" onclick="navigate('placement')">Job Placements</button>
       </div>
       <div class="card">

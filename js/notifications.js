@@ -2,7 +2,7 @@ function initNotifications() {
   if (!("Notification" in window) || !user.loggedIn) return;
   if (Notification.permission === "default") {
     setTimeout(() => {
-      if (confirm("Enable reminders for daily check-in and Friday service?")) {
+      if (confirm("Enable reminders for daily check-in and The Forge (Friday brotherhood)?")) {
         Notification.requestPermission();
       }
     }, 3000);
@@ -23,7 +23,7 @@ function scheduleLocalReminders() {
   const next = getNextFriday(new Date(), svc.serviceTime);
   const hoursUntil = (next - new Date()) / (1000 * 60 * 60);
   if (next.getDay() === 5 && hoursUntil > 0 && hoursUntil <= 2) {
-    new Notification("IronMen — Friday Service", { body: `Brotherhood service in ${Math.round(hoursUntil * 60)} minutes.` });
+    new Notification("IronMen — The Forge", { body: `The Forge opens in ${Math.round(hoursUntil * 60)} minutes. Be ready to be sharpened.` });
   }
 }
 

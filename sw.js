@@ -1,4 +1,4 @@
-const CACHE = "ironmen-v2";
+const CACHE = "ironmen-v3";
 const PRECACHE = [
   "/",
   "/index.html",

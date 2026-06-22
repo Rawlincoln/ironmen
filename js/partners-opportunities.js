@@ -167,13 +167,13 @@ function renderChurchSection() {
         </div>
         <div class="house-feature">
           <div class="house-feature-icon">🏛️</div>
-          <h3>Friday Service Venue</h3>
-          <p>Host the weekly 1-hour brotherhood service as we transition from Zoom to in-person.</p>
+          <h3>The Forge Venue</h3>
+          <p>Host our weekly men's brotherhood gathering — The Forge — as we transition from Zoom to in-person.</p>
         </div>
         <div class="house-feature">
           <div class="house-feature-icon">📖</div>
           <h3>Teaching & Preaching</h3>
-          <p>Supply guest speakers for Friday services and faith modules in the 12-week curriculum.</p>
+          <p>Supply guest speakers for The Forge and faith modules in the 12-week curriculum.</p>
         </div>
         <div class="house-feature">
           <div class="house-feature-icon">🙏</div>

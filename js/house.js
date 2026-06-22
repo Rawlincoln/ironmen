@@ -112,7 +112,7 @@ function renderHouseOverview() {
           <button class="btn btn-secondary btn-block" onclick="navigate('training')">Log Training Session</button>
           <button class="btn btn-secondary btn-block" onclick="navigate('skills')">Record Assessment</button>
           <button class="btn btn-secondary btn-block" onclick="navigate('graduation')">Graduation & Placement</button>
-          <button class="btn btn-secondary btn-block" onclick="navigate('friday')">Friday Brotherhood Service</button>
+          <button class="btn btn-secondary btn-block" onclick="navigate('friday')">${THE_FORGE.name}</button>
         </div>
       </div>
     </div>
@@ -443,9 +443,9 @@ function renderSchedule() {
       `).join("")}
     </div>
     <div class="card" style="margin-top:24px;">
-      <h3 style="margin-bottom:12px;">Friday Brotherhood Service</h3>
-      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:12px;">Every Friday 19:00–20:00 (1 hour). Residents attend the weekly church-style brotherhood service — on Zoom first, then in-person. Replaces the regular 19:30 accountability circle on Fridays.</p>
-      <button class="btn btn-primary btn-sm" onclick="navigate('friday')">View Friday Service</button>
+      <h3 style="margin-bottom:12px;">${THE_FORGE.name}</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:12px;">Every Friday 19:00–20:00. Residents attend The Forge — IronMen's weekly brotherhood gathering. On Zoom first, then in-person. Replaces the regular 19:30 accountability circle on Fridays.</p>
+      <button class="btn btn-primary btn-sm" onclick="navigate('friday')">Enter The Forge</button>
     </div>
     <div class="card" style="margin-top:24px;">
       <h3 style="margin-bottom:12px;">Weekly Training Blocks</h3>

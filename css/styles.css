@@ -2434,6 +2434,22 @@ textarea.form-control {
   border-left: 3px solid var(--danger);
 }
 
+/* The Forge */
+.forge-banner {
+  border-left: 3px solid var(--gold);
+}
+
+.forge-public-card h2 {
+  font-family: var(--font-display);
+}
+
+.forge-detail-card .home-friday-day {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
 /* Friday public card */
 .friday-public-card {
   padding: 32px;

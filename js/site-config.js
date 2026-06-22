@@ -21,6 +21,7 @@ function getDefaultSiteConfig() {
       tagline_sw: "Ndugu wa kiume wenye kumcha Mungu",
       apply_sw: "Omba Kujiunga",
       friday_sw: "Ibada ya Ijumaa",
+      forge_tagline: "Mahali chuma kinachongana na chuma",
     },
     demoMode: false,
     showSampleData: false,
@@ -125,20 +126,21 @@ function renderFridayPublicCard() {
   const countdown = getTimeUntilService(nextFriday);
   const isZoom = svc.mode !== "in-person";
   return `
-    <section class="home-section home-section-alt" id="friday-public">
+    <section class="home-section home-section-alt" id="forge-public">
       <div class="home-container">
-        <div class="friday-public-card card card-gold">
+        <div class="friday-public-card forge-public-card card card-gold">
           <div class="friday-public-inner">
             <div>
-              <p class="home-eyebrow">${siteConfig.labels.friday_sw ? "Friday Service / " + siteConfig.labels.friday_sw : "This Friday"}</p>
+              <p class="home-eyebrow">🔥 ${THE_FORGE.name} &bull; ${THE_FORGE.tagline}</p>
               <h2>${formatServiceDateTime(nextFriday)}</h2>
-              <p style="color:var(--text-muted);margin:8px 0;">${countdown} &bull; Topic: <strong>${topic.title}</strong></p>
-              <p style="font-size:0.9rem;color:var(--text-muted);">${isZoom ? "Join on Zoom — open to all brothers." : svc.physicalVenue || "In-person venue"}</p>
+              <p style="color:var(--text-muted);margin:12px 0 8px;line-height:1.6;font-size:0.95rem;">${THE_FORGE.description}</p>
+              <p style="color:var(--text-muted);margin:8px 0;">${countdown} &bull; This week: <strong>${topic.title}</strong></p>
+              <p style="font-size:0.9rem;color:var(--text-muted);">${isZoom ? "Join on Zoom — open to every brother ready to be forged." : svc.physicalVenue || "In-person venue"}</p>
             </div>
             <div class="friday-public-actions">
-              ${isZoom && svc.zoomLink ? `<a class="btn btn-primary" href="${svc.zoomLink}" target="_blank" rel="noopener">Join Zoom</a>` : ""}
-              <button class="btn btn-secondary" onclick="showAgeGate()">RSVP as Brother</button>
-              <button class="btn btn-outline" onclick="${user.loggedIn && user.onboardingComplete ? "navigate('friday')" : "showAgeGate()"}">Full service page</button>
+              ${isZoom && svc.zoomLink ? `<a class="btn btn-primary" href="${svc.zoomLink}" target="_blank" rel="noopener">Enter The Forge</a>` : ""}
+              <button class="btn btn-secondary" onclick="showAgeGate()">RSVP — I'm In</button>
+              <button class="btn btn-outline" onclick="${user.loggedIn && user.onboardingComplete ? "navigate('friday')" : "showAgeGate()"}">Full Forge page</button>
             </div>
           </div>
         </div>

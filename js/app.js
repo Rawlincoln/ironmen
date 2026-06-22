@@ -85,7 +85,7 @@ function renderLanding() {
           <div class="home-stat-divider"></div>
           <div class="home-stat"><span class="home-stat-num">12</span><span class="home-stat-label">Weeks of training</span></div>
           <div class="home-stat-divider"></div>
-          <div class="home-stat"><span class="home-stat-num">Fri</span><span class="home-stat-label">Weekly brotherhood service</span></div>
+          <div class="home-stat"><span class="home-stat-num">Fri</span><span class="home-stat-label">The Forge — weekly</span></div>
         </div>
       </section>
 
@@ -138,10 +138,10 @@ function renderLanding() {
               </ul>
               <span class="home-program-link">Learn more →</span>
             </article>
-            <article class="home-program-card" onclick="scrollToSection('friday-detail')">
+            <article class="home-program-card" onclick="scrollToSection('forge-detail')">
               <span class="home-program-tag">Weekly</span>
-              <h3>Friday Service</h3>
-              <p>One hour of worship, teaching, and fellowship every Friday at 7 PM. On Zoom now, in-person soon.</p>
+              <h3>The Forge</h3>
+              <p>IronMen's Friday brotherhood — one hour to be sharpened, challenged, and held accountable. Zoom now, in-person soon.</p>
               <span class="home-program-link">Learn more →</span>
             </article>
             <article class="home-program-card" onclick="navigate('partner')">
@@ -177,20 +177,20 @@ function renderLanding() {
         </div>
       </section>
 
-      <section class="home-detail home-detail-alt" id="friday-detail">
+      <section class="home-detail home-detail-alt" id="forge-detail">
         <div class="home-container home-detail-grid home-detail-reverse">
           <div class="home-detail-visual home-detail-single">
-            <div class="home-friday-card">
-              <p class="home-friday-day">Every Friday</p>
-              <p class="home-friday-time">7:00 – 8:00 PM</p>
-              <p class="home-friday-mode">Zoom → In-person</p>
+            <div class="home-friday-card forge-detail-card">
+              <p class="home-friday-day">🔥 ${THE_FORGE.name}</p>
+              <p class="home-friday-time">Every Friday &bull; 7:00 – 8:00 PM</p>
+              <p class="home-friday-mode">${THE_FORGE.tagline}</p>
             </div>
           </div>
           <div class="home-detail-content">
-            <p class="home-eyebrow">Brotherhood service</p>
-            <h2>Worship together, grow together</h2>
-            <p>A weekly church-style gathering open to all brothers — residents, alumni, mentors, and members. Worship, Scripture, testimony, and fellowship in one focused hour.</p>
-            <button class="btn btn-secondary" onclick="showAgeGate()">Join the Brotherhood</button>
+            <p class="home-eyebrow">Weekly men's brotherhood</p>
+            <h2>Step into the fire. Leave sharper.</h2>
+            <p>${THE_FORGE.description}</p>
+            <button class="btn btn-secondary" onclick="showAgeGate()">Join The Forge</button>
           </div>
         </div>
       </section>
@@ -282,7 +282,11 @@ function scrollToHouse() {
 }
 
 function scrollToFriday() {
-  scrollToSection("friday-detail");
+  scrollToSection("forge-detail");
+}
+
+function scrollToForge() {
+  scrollToSection("forge-detail");
 }
 
 function renderOnboarding() {

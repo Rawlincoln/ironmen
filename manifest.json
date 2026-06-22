@@ -2,7 +2,7 @@
   "id": "/",
   "name": "IronMen Brotherhood",
   "short_name": "IronMen",
-  "description": "Brotherhood for God-fearing men — accountability, halfway house, Friday service, jobs, and SOS support.",
+  "description": "Brotherhood for God-fearing men — accountability, halfway house, The Forge weekly gathering, jobs, and SOS support.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -70,8 +70,8 @@
       "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
     },
     {
-      "name": "Friday Service",
-      "short_name": "Friday",
+      "name": "The Forge",
+      "short_name": "Forge",
       "url": "/#friday",
       "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
     },

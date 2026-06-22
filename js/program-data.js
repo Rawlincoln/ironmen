@@ -112,12 +112,19 @@ const CURRICULUM = [
   },
 ];
 
-const FRIDAY_SERVICE = {
+const THE_FORGE = {
+  name: "The Forge",
+  tagline: "Where iron sharpens iron.",
   day: "Friday",
   time: "19:00",
   durationMinutes: 60,
-  label: "IronMen Brotherhood Service",
-  description: "Weekly worship, teaching, and fellowship for all brothers — residents, alumni, mentors, and members.",
+  description:
+    "The Forge is IronMen's weekly men's brotherhood. Every Friday, real men gather to be sharpened — no fluff, no weak prayers, no excuses. We confront truth, build iron discipline, forge character, and hold each other accountable. This is where boys become men, and men become dangerous to mediocrity.",
+};
+
+const FRIDAY_SERVICE = {
+  ...THE_FORGE,
+  label: THE_FORGE.name,
 };
 
 const SERVICE_ORDER = [

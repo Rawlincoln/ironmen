@@ -2,7 +2,7 @@ const PARTNERSHIP_TYPES = [
   { id: "financial", label: "Financial Support", icon: "💰", desc: "Fund the halfway house, cohorts, or individual needs" },
   { id: "mentorship", label: "Mentorship", icon: "🤝", desc: "Walk alongside a young man — spiritually, professionally, or practically" },
   { id: "employer", label: "Employer / Apprenticeship", icon: "🔧", desc: "Offer jobs, internships, or trade apprenticeships to graduating brothers" },
-  { id: "church", label: "Church / Ministry", icon: "✝️", desc: "Provide pastoral support, venue, or Friday service partnership" },
+  { id: "church", label: "Church / Ministry", icon: "✝️", desc: "Provide pastoral support, venue, or The Forge partnership" },
   { id: "women", label: "Moms & Women Supporters", icon: "💐", desc: "For mothers and women who believe in god-fearing, responsible, masculine men" },
 ];
 
@@ -36,7 +36,7 @@ const FINANCIAL_TIERS = [
 const MENTORSHIP_ROLES = [
   { id: "resident", title: "Resident Mentor", commitment: "90 days, 6+ hrs/week", desc: "Assigned to 1–3 men in the house. Weekly 1-on-1s, accountability, skill assessments." },
   { id: "career", title: "Career / Trade Mentor", commitment: "2–4 hrs/month", desc: "Guide brothers in your profession — CV review, interview prep, workplace wisdom." },
-  { id: "friday", title: "Friday Service Speaker", commitment: "1 hr/month", desc: "Deliver a 25-minute teaching at the weekly brotherhood service." },
+  { id: "friday", title: "The Forge Speaker", commitment: "1 hr/month", desc: "Deliver a 25-minute teaching at The Forge — our weekly men's brotherhood." },
   { id: "employer", title: "Employer Partner", commitment: "Ongoing", desc: "Commit to interviewing or hiring IronMen graduates. Offer apprenticeships in your trade." },
 ];
 
@@ -99,7 +99,7 @@ const DEFAULT_OPPORTUNITIES = [
     type: "employment",
     location: "Nairobi",
     description: "Full-time sales role with on-the-job training. Stable income for brothers ready to support themselves after graduation.",
-    requirements: ["Good communication", "Honest and reliable", "Friday service attendance encouraged"],
+    requirements: ["Good communication", "Honest and reliable", "The Forge attendance encouraged"],
     contact: "jobs@cornerstone.example",
     deadline: "",
     status: "open",

@@ -104,7 +104,7 @@ function renderWomenSupportDetail(supportType, pay) {
           <li>Pray for the 10 men in each cohort — by name when possible</li>
           <li>Pray for mentors and the House Director to lead with wisdom</li>
           <li>Pray for graduates finding work and staying free from vice</li>
-          <li>Pray for the Friday Brotherhood Service to reach more men</li>
+          <li>Pray for The Forge to reach more men every Friday</li>
           <li>Pray for mothers and families waiting for their sons to come home changed</li>
         </ul>
       </div>
