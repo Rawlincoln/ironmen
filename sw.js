@@ -1,4 +1,4 @@
-const CACHE = "ironmen-v3";
+const CACHE = "ironmen-v4";
 const PRECACHE = [
   "/",
   "/index.html",
@@ -69,17 +69,19 @@ self.addEventListener("fetch", (e) => {
 
   if (e.request.method !== "GET") return;
 
-  e.respondWith(
-    caches.match(e.request).then((cached) => {
-      const network = fetch(e.request).then((res) => {
-        if (res.ok && url.origin === self.location.origin) {
-          const clone = res.clone();
-          caches.open(CACHE).then((cache) => cache.put(e.request, clone));
-        }
-        return res;
-      }).catch(() => cached);
+  const isAsset = /\.(js|css|html)$/.test(url.pathname) || url.pathname === "/";
 
-      return cached || network;
-    }).catch(() => caches.match("/index.html"))
+  e.respondWith(
+    fetch(e.request).then((res) => {
+      if (res.ok && url.origin === self.location.origin) {
+        const clone = res.clone();
+        caches.open(CACHE).then((cache) => cache.put(e.request, clone));
+      }
+      return res;
+    }).catch(() =>
+      caches.match(e.request).then((cached) =>
+        cached || (isAsset ? caches.match("/index.html") : undefined)
+      )
+    )
   );
 });

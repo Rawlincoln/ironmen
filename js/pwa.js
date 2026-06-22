@@ -130,7 +130,15 @@ function renderGetAppSection() {
 function registerServiceWorker() {
   if (!("serviceWorker" in navigator)) return;
 
-  navigator.serviceWorker.register("/sw.js").then((reg) => {
+  navigator.serviceWorker.getRegistrations().then((regs) => {
+    regs.forEach((reg) => {
+      if (reg.active && !reg.active.scriptURL.includes("sw.js")) return;
+      reg.update();
+    });
+  });
+
+  navigator.serviceWorker.register("/sw.js?v=4").then((reg) => {
+    reg.update();
     reg.addEventListener("updatefound", () => {
       const worker = reg.installing;
       if (!worker) return;
